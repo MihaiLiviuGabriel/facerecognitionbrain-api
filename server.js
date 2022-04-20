@@ -21,13 +21,14 @@ const db = knex({
 	 // db.select('*').from('users').then(data => {
 	 // 	console.log(data);
 	 // });
-	// app.get('/', (req,res) => {
-	// 	...
-	// })
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+
+	app.get('/', (req,res) => {
+		res.send('it is working')
+	})
 
 app.post('/imageurl', (req, res) => {
  	api.models.predict(Clarifai.FACE_DETECT_MODEL, req.body.input)
