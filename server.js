@@ -5,10 +5,12 @@ const cors = require('cors');
 const knex = require('knex');
 const Clarifai = require('clarifai');
 
+
 const api = new Clarifai.App({
   apiKey: '487bf681eb4d4e9cb497081dbaa5411d'
 });
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
 
 const db = knex({
   client: 'pg',
